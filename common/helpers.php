@@ -37,26 +37,14 @@ function redirect($url, $statusCode = 302)
 }
 
 /**
- * @param $form \yii\widgets\ActiveForm
- * @param $model
- * @param $attribute
- * @param array $inputOptions
- * @param array $fieldOptions
- * @return string
- */
-function activeTextinput($form, $model, $attribute, $inputOptions = [], $fieldOptions = [])
-{
-    return $form->field($model, $attribute, $fieldOptions)->textInput($inputOptions);
-}
-
-/**
  * @param string $key
  * @param mixed $default
  * @return mixed
  */
-function env($key, $default = false) {
+function env($key, $default = null)
+{
 
-    $value = getenv($key);
+    $value = getenv($key) ?? $_ENV[$key] ?? $_SERVER[$key];
 
     if ($value === false) {
         return $default;

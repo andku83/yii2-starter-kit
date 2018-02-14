@@ -1,17 +1,14 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 class m140703_123104_page extends Migration
 {
+    /**
+     * @return bool|void
+     */
     public function up()
     {
-        $tableOptions = null;
-        if ($this->db->driverName === 'mysql') {
-            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
-        }
-
         $this->createTable('{{%page}}', [
             'id' => $this->primaryKey(),
             'slug' => $this->string(2048)->notNull(),
@@ -21,9 +18,12 @@ class m140703_123104_page extends Migration
             'status' => $this->smallInteger()->notNull(),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
-        ], $tableOptions);
+        ]);
     }
 
+    /**
+     * @return bool|void
+     */
     public function down()
     {
         $this->dropTable('{{%page}}');

@@ -2,14 +2,15 @@
 
 namespace backend\controllers;
 
-use Yii;
-use common\models\User;
-use backend\models\UserForm;
 use backend\models\search\UserSearch;
+use backend\models\UserForm;
+use common\models\User;
+use common\models\UserToken;
+use Yii;
+use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -53,6 +54,26 @@ class UserController extends Controller
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
+    }
+
+    /**
+     * @param $id
+     * @return \yii\web\Response
+     * @throws \yii\base\Exception
+     * @throws NotFoundHttpException
+     */
+    public function actionLogin($id)
+    {
+        $model = $this->findModel($id);
+        $tokenModel = UserToken::create(
+            $model->getId(),
+            UserToken::TYPE_LOGIN_PASS,
+            60
+        );
+
+        return $this->redirect(
+            Yii::$app->urlManagerFrontend->createAbsoluteUrl(['user/sign-in/login-by-pass', 'token' => $tokenModel->token])
+        );
     }
 
     /**

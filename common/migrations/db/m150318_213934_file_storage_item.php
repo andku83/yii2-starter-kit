@@ -1,17 +1,14 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 class m150318_213934_file_storage_item extends Migration
 {
-    public function up()
+    /**
+     * @return bool|void
+     */
+    public function safeUp()
     {
-        $tableOptions = null;
-        if ($this->db->driverName === 'mysql') {
-            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
-        }
-
         $this->createTable('{{%file_storage_item}}', [
             'id' => $this->primaryKey(),
             'component' => $this->string()->notNull(),
@@ -22,8 +19,12 @@ class m150318_213934_file_storage_item extends Migration
             'name' => $this->string(),
             'upload_ip' => $this->string(15),
             'created_at' => $this->integer()->notNull()
-        ], $tableOptions);
+        ]);
     }
+
+    /**
+     * @return bool|void
+     */
     public function down()
     {
         $this->dropTable('{{%file_storage_item}}');

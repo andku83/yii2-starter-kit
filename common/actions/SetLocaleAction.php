@@ -5,9 +5,9 @@
 
 namespace common\actions;
 
+use Yii;
 use yii\base\Action;
 use yii\base\InvalidParamException;
-use Yii;
 use yii\web\Cookie;
 
 /**
@@ -22,7 +22,7 @@ use yii\web\Cookie;
  *           'set-locale'=>[
  *               'class'=>'common\actions\SetLocaleAction',
  *               'locales'=>[
- *                   'en-US', 'ru-RU', 'ua-UA'
+ *                   'en-US', 'ru-RU', 'uk-UA'
  *               ],
  *               'localeCookieName'=>'_locale',
  *               'callback'=>function($action){
@@ -31,8 +31,7 @@ use yii\web\Cookie;
  *           ]
  *       ];
  *   }
-*/
-
+ */
 class SetLocaleAction extends Action
 {
     /**

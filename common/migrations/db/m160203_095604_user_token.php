@@ -1,10 +1,12 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 class m160203_095604_user_token extends Migration
 {
+    /**
+     * @return bool|void
+     */
     public function up()
     {
         $this->createTable('{{%user_token}}', [
@@ -18,6 +20,9 @@ class m160203_095604_user_token extends Migration
         ]);
     }
 
+    /**
+     * @return bool|void
+     */
     public function down()
     {
         $this->dropTable('{{%user_token}}');
