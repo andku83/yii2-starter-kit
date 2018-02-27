@@ -62,3 +62,68 @@ function env($key, $default = null)
 
     return $value;
 }
+
+
+
+/**
+ * Dump a value with elegance.
+ *
+ * @param  mixed  $data
+ * @return bool
+ */
+if (!function_exists('dump')) {
+    function dump($data, $die = false){
+        ob_start();
+        var_dump($data);
+        $output = ob_get_clean();
+        $output = preg_replace("/\]\=\>\n(\s+)/m", "] => ", $output);
+        echo '<pre>'.($output).'</pre>';
+        if ($die){
+            exit;
+        }
+        return false;
+    }
+}
+
+/**
+ * Dump a value with elegance and exit.
+ *
+ * @param  mixed  $data
+ * @return void
+ */
+if (!function_exists('dd')) {
+    function dd()
+    {
+        $args = func_get_args();
+        call_user_func_array('dump', $args);
+        die();
+    }
+}
+
+/**
+ * Dump a value with elegance.
+ *
+ * @param  mixed  $data
+ * @return void
+ */
+if (!function_exists('d')) {
+    function d()
+    {
+        $args = func_get_args();
+        call_user_func_array('dump', $args);
+    }
+}
+//if (!function_exists('d')) {
+//    function d()
+//    {
+//        ob_start();
+//        var_dump($data);
+//        $output = ob_get_clean();
+//        $output = preg_replace("/\]\=\>\n(\s+)/m", "] => ", $output);
+//        echo '<pre>'.($output).'</pre>';
+//        if ($die){
+//            exit;
+//        }
+//        return false;
+//    }
+//}
