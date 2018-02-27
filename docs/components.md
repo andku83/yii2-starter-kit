@@ -243,10 +243,10 @@ public function behaviors()
     {
         return [
             'modelAccess' => [
-                'class' => OwnModelAccessFilter::className(),
+                'class' => OwnModelAccessFilter::class,
                 'only' => ['view', 'update', 'delete'],
                 'modelCreatedByAttribute' => 'created_by',
-                'modelClass' => Article::className()
+                'modelClass' => Article::class
             ],
         ];
     }

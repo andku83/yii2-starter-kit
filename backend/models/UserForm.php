@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\models\query\UserQuery;
 use common\models\User;
 use Yii;
 use yii\base\Exception;
@@ -29,7 +30,7 @@ class UserForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => User::className(), 'filter' => function ($query) {
+            ['username', 'unique', 'targetClass' => User::class, 'filter' => function (UserQuery $query) {
                 if (!$this->getModel()->isNewRecord) {
                     $query->andWhere(['not', ['id' => $this->getModel()->id]]);
                 }
@@ -39,7 +40,7 @@ class UserForm extends Model
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => User::className(), 'filter' => function ($query) {
+            ['email', 'unique', 'targetClass' => User::class, 'filter' => function (UserQuery $query) {
                 if (!$this->getModel()->isNewRecord) {
                     $query->andWhere(['not', ['id' => $this->getModel()->id]]);
                 }
@@ -102,7 +103,7 @@ class UserForm extends Model
 
     /**
      * Signs user up.
-     * @return User|null the saved model or null if saving fails
+     * @return bool the saved model or null if saving fails
      * @throws Exception
      */
     public function save()
@@ -131,8 +132,8 @@ class UserForm extends Model
                 }
             }
 
-            return !$model->hasErrors();
+            return true;
         }
-        return null;
+        return false;
     }
 }

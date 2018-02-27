@@ -2,6 +2,7 @@
 
 namespace frontend\modules\user\models;
 
+use common\models\query\UserQuery;
 use common\models\User;
 use Yii;
 use yii\base\Model;
@@ -55,7 +56,7 @@ class AccountForm extends Model
             ['username', 'unique',
                 'targetClass' => User::class,
                 'message' => Yii::t('frontend', 'This username has already been taken.'),
-                'filter' => function ($query) {
+                'filter' => function (UserQuery $query) {
                     $query->andWhere(['not', ['id' => Yii::$app->user->getId()]]);
                 }
             ],
@@ -66,7 +67,7 @@ class AccountForm extends Model
             ['email', 'unique',
                 'targetClass' => User::class,
                 'message' => Yii::t('frontend', 'This email has already been taken.'),
-                'filter' => function ($query) {
+                'filter' => function (UserQuery $query) {
                     $query->andWhere(['not', ['id' => Yii::$app->user->getId()]]);
                 }
             ],

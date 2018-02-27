@@ -62,7 +62,7 @@ class CacheController extends Controller
      */
     private function isCacheClass($className)
     {
-        return is_subclass_of($className, Cache::className());
+        return is_subclass_of($className, Cache::class);
     }
 
     /**
@@ -83,7 +83,7 @@ class CacheController extends Controller
 
     /**
      * @param $id
-     * @return \yii\caching\Cache|null
+     * @return \yii\caching\Cache|object|null
      * @throws HttpException
      * @throws \yii\base\InvalidConfigException
      */
