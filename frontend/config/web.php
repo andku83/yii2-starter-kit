@@ -1,6 +1,6 @@
 <?php
 $config = [
-    'homeUrl' => Yii::getAlias('@frontendUrl'),
+    'homeUrl' => Yii::getAlias('@frontendUrl') ?: null,
     'controllerNamespace' => 'frontend\controllers',
     'defaultRoute' => 'site/index',
     'bootstrap' => ['maintenance'],
@@ -53,7 +53,8 @@ $config = [
             }
         ],
         'request' => [
-            'cookieValidationKey' => env('FRONTEND_COOKIE_VALIDATION_KEY')
+            'cookieValidationKey' => env('FRONTEND_COOKIE_VALIDATION_KEY'),
+            'baseUrl' => env('FRONTEND_BASE_URL') == '/' ? '' : env('FRONTEND_BASE_URL')
         ],
         'user' => [
             'class' => yii\web\User::class,
