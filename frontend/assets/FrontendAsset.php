@@ -20,20 +20,25 @@ class FrontendAsset extends AssetBundle
     /**
      * @var string
      */
-    public $sourcePath = '@frontend/web/bundle';
+    public $basePath = '@webroot';
+
+    /**
+     * @var string
+     */
+    public $baseUrl = '@web';
 
     /**
      * @var array
      */
     public $css = [
-        'style.css',
+        'css/style.css',
     ];
 
     /**
      * @var array
      */
     public $js = [
-        'app.js',
+        'js/app.js',
     ];
 
     /**

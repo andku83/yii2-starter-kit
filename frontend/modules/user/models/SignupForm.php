@@ -116,12 +116,10 @@ class SignupForm extends Model
     {
         /** @var Module $userModule */
         $userModule = Yii::$app->getModule('user');
-        if (!$userModule) {
-            return false;
-        } elseif ($userModule->shouldBeActivated) {
+        if ($userModule && $userModule->shouldBeActivated) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 }
