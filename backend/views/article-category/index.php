@@ -12,15 +12,15 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-category-index">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?//= $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
+        <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
             'modelClass' => 'Article Category',
         ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php echo GridView::widget([
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'options' => [

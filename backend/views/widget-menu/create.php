@@ -10,8 +10,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="widget-menu-create">
 
-    <?php echo $this->render('_form', [
+    <?= $this->render('_form', [
         'model' => $model,
-    ]) ?>
+    ]); ?>
 
 </div>

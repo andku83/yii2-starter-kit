@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zein
- * Date: 7/4/14
- * Time: 2:01 PM
- */
 
 namespace frontend\controllers;
 
@@ -13,8 +7,17 @@ use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
+/**
+ * Class PageController
+ * @package frontend\controllers
+ */
 class PageController extends Controller
 {
+    /**
+     * @param $slug
+     * @return string
+     * @throws NotFoundHttpException
+     */
     public function actionView($slug)
     {
         $model = Page::find()->where(['slug' => $slug, 'status' => Page::STATUS_PUBLISHED])->one();

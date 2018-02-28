@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zein
- * Date: 8/2/14
- * Time: 11:20 AM
- */
 
 namespace backend\controllers;
 
@@ -17,11 +11,21 @@ use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 
+/**
+ * Class SignInController
+ * @package backend\controllers
+ */
 class SignInController extends Controller
 {
 
+    /**
+     * @var string
+     */
     public $defaultAction = 'login';
 
+    /**
+     * @return array
+     */
     public function behaviors()
     {
         return [
@@ -34,6 +38,9 @@ class SignInController extends Controller
         ];
     }
 
+    /**
+     * @return array
+     */
     public function actions()
     {
         return [
@@ -54,6 +61,10 @@ class SignInController extends Controller
     }
 
 
+    /**
+     * @return string|\yii\web\Response
+     * @throws \yii\web\ForbiddenHttpException
+     */
     public function actionLogin()
     {
         $this->layout = 'base';
@@ -71,12 +82,18 @@ class SignInController extends Controller
         }
     }
 
+    /**
+     * @return \yii\web\Response
+     */
     public function actionLogout()
     {
         Yii::$app->user->logout();
         return $this->goHome();
     }
 
+    /**
+     * @return string|\yii\web\Response
+     */
     public function actionProfile()
     {
         $model = Yii::$app->user->identity->userProfile;
@@ -90,6 +107,9 @@ class SignInController extends Controller
         return $this->render('profile', ['model' => $model]);
     }
 
+    /**
+     * @return string|\yii\web\Response
+     */
     public function actionAccount()
     {
         $user = Yii::$app->user->identity;

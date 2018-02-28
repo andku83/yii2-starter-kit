@@ -11,7 +11,7 @@ $this->title = Yii::t('backend', 'Widget Menus');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="widget-menu-index">
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?//= $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a(Yii::t('backend', 'Create {modelClass}', [

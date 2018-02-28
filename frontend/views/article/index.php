@@ -10,7 +10,7 @@ $this->title = Yii::t('frontend', 'Articles')
 ?>
 <div id="article-index">
     <h1>
-        <?php echo Yii::t('frontend', 'Articles') ?>
+        <?= Yii::t('frontend', 'Articles') ?>
     </h1>
     <span class="glyphicon glyphicon-search" data-toggle="collapse" data-target="#search-form"></span>
     <div class="collapse" id="search-form">
@@ -19,12 +19,12 @@ $this->title = Yii::t('frontend', 'Articles')
                 'options' => ['class' => 'form-inline']
         ]) ?>
             <div>
-                <?php echo $form->field($searchModel, 'title')->label(false)->error(false) ?>
-                <?php echo Html::submitButton(Yii::t('frontend', 'Search'), ['class' => 'btn btn-default']) ?>
+                <?= $form->field($searchModel, 'title')->label(false)->error(false) ?>
+                <?= Html::submitButton(Yii::t('frontend', 'Search'), ['class' => 'btn btn-default']) ?>
             </div>
         <?php ActiveForm::end() ?>
     </div>
-    <?php echo \yii\widgets\ListView::widget([
+    <?= \yii\widgets\ListView::widget([
         'dataProvider' => $dataProvider,
         'pager' => [
             'hideOnSinglePage' => true,

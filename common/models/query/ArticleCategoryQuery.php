@@ -1,16 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zein
- * Date: 7/4/14
- * Time: 2:31 PM
- */
 
 namespace common\models\query;
 
 use common\models\ArticleCategory;
 use yii\db\ActiveQuery;
 
+/**
+ * Class ArticleCategoryQuery
+ * @package common\models\query
+ */
 class ArticleCategoryQuery extends ActiveQuery
 {
     /**

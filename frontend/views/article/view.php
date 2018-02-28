@@ -7,10 +7,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="content">
     <article class="article-item">
-        <h1><?php echo $model->title ?></h1>
+        <h1><?= $model->title ?></h1>
 
         <?php if ($model->thumbnail_path): ?>
-            <?php echo \yii\helpers\Html::img(
+            <?= \yii\helpers\Html::img(
                 Yii::$app->glide->createSignedUrl([
                     'glide/index',
                     'path' => $model->thumbnail_path,
@@ -20,18 +20,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ) ?>
         <?php endif; ?>
 
-        <?php echo $model->body ?>
+        <?= $model->body ?>
 
         <?php if (!empty($model->articleAttachments)): ?>
-            <h3><?php echo Yii::t('frontend', 'Attachments') ?></h3>
+            <h3><?= Yii::t('frontend', 'Attachments') ?></h3>
             <ul id="article-attachments">
                 <?php foreach ($model->articleAttachments as $attachment): ?>
                     <li>
-                        <?php echo \yii\helpers\Html::a(
+                        <?= \yii\helpers\Html::a(
                             $attachment->name,
                             ['attachment-download', 'id' => $attachment->id])
                         ?>
-                        (<?php echo Yii::$app->formatter->asSize($attachment->size) ?>)
+                        (<?= Yii::$app->formatter->asSize($attachment->size) ?>)
                     </li>
                 <?php endforeach; ?>
             </ul>

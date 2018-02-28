@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?//= $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a(

@@ -15,27 +15,27 @@ use yii\bootstrap\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?php echo $form->field($model, 'id') ?>
+    <?= $form->field($model, 'id') ?>
 
-    <?php echo $form->field($model, 'component') ?>
+    <?= $form->field($model, 'component') ?>
 
-    <?php echo $form->field($model, 'base_url') ?>
+    <?= $form->field($model, 'base_url') ?>
 
-    <?php echo $form->field($model, 'path') ?>
+    <?= $form->field($model, 'path') ?>
 
-    <?php echo $form->field($model, 'type') ?>
+    <?= $form->field($model, 'type') ?>
 
-    <?php // echo $form->field($model, 'size') ?>
+    <?//= $form->field($model, 'size') ?>
 
-    <?php // echo $form->field($model, 'name') ?>
+    <?//= $form->field($model, 'name') ?>
 
-    <?php // echo $form->field($model, 'upload_ip') ?>
+    <?//= $form->field($model, 'upload_ip') ?>
 
-    <?php // echo $form->field($model, 'created_at') ?>
+    <?//= $form->field($model, 'created_at') ?>
 
     <div class="form-group">
-        <?php echo Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?php echo Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

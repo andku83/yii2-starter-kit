@@ -3,6 +3,7 @@
 namespace common\assets;
 
 use yii\web\AssetBundle;
+use yii\web\JqueryAsset;
 
 /**
  * Class JquerySlimScroll
@@ -16,6 +17,6 @@ class JquerySlimScroll extends AssetBundle
         'jquery.slimscroll.min.js'
     ];
     public $depends = [
-        'yii\web\JqueryAsset'
+        JqueryAsset::class
     ];
 }

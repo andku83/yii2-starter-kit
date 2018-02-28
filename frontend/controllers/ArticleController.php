@@ -8,6 +8,7 @@ use frontend\models\search\ArticleSearch;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 /**
  * @author Eugene Terentev <eugene@terentev.net>
@@ -45,7 +46,7 @@ class ArticleController extends Controller
 
     /**
      * @param $id
-     * @return $this
+     * @return Response
      * @throws NotFoundHttpException
      * @throws \yii\web\HttpException
      */
