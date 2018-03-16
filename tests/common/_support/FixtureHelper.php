@@ -13,10 +13,6 @@ use tests\common\fixtures\RbacAuthItemFixture;
 use tests\common\fixtures\RbacAuthRuleFixture;
 use tests\common\fixtures\UserFixture;
 use tests\common\fixtures\UserProfileFixture;
-use tests\common\fixtures\WidgetCarouselFixture;
-use tests\common\fixtures\WidgetCarouselItemFixture;
-use tests\common\fixtures\WidgetMenuFixture;
-use tests\common\fixtures\WidgetTextFixture;
 use yii\test\FixtureTrait;
 
 /**
@@ -104,22 +100,6 @@ class FixtureHelper extends Module
                 'class' => PageFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/page.php',
             ],
-            'widget_carousel' => [
-                'class' => WidgetCarouselFixture::class,
-                'dataFile' => '@tests/common/fixtures/data/widget_carousel.php',
-            ],
-            'widget_carousel_item' => [
-                'class' => WidgetCarouselItemFixture::class,
-                'dataFile' => '@tests/common/fixtures/data/widget_carousel_item.php',
-            ],
-            'widget_text' => [
-                'class' => WidgetTextFixture::class,
-                'dataFile' => '@tests/common/fixtures/data/widget_text.php',
-            ],
-            'widget_menu' => [
-                'class' => WidgetMenuFixture::class,
-                'dataFile' => '@tests/common/fixtures/data/widget_menu.php',
-            ]
         ];
     }
 }

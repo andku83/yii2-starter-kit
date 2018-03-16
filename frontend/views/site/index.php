@@ -4,25 +4,10 @@ $this->title = Yii::$app->name;
 ?>
 <div class="site-index">
 
-    <?= \common\widgets\DbCarousel::widget([
-        'key' => 'index',
-        'assetManager' => Yii::$app->getAssetManager(),
-        'options' => [
-            'class' => 'slide', // enables slide effect
-        ],
-    ]) ?>
-
     <div class="jumbotron">
         <h1>Congratulations!</h1>
 
         <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <?= common\widgets\DbMenu::widget([
-            'key'=>'frontend-index',
-            'options'=>[
-                'tag'=>'p'
-            ]
-        ]) ?>
 
     </div>
 
