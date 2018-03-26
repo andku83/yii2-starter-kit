@@ -1,6 +1,7 @@
 <?php
 /**
  * @var $this yii\web\View
+ * @var $content string
  */
 
 use backend\assets\BackendAsset;
@@ -35,12 +36,17 @@ $bundle = BackendAsset::register($this);
             </a>
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                    <li id="flush-caches" class="notifications-menu">
+                        <a href="<?= Url::to(['/cache/flush-all-caches']) ?>" title="Сбросить" data-confirm="<?= Yii::t('backend', 'Are you sure you want to flush all caches?') ?>">
+                            <i class="fa fa-refresh"></i>
+                        </a>
+                    </li>
                     <li id="timeline-notifications" class="notifications-menu">
                         <a href="<?= Url::to(['/timeline-event/index']) ?>">
                             <i class="fa fa-bell"></i>
                             <span class="label label-success">
-                                    <?= TimelineEvent::find()->today()->count() ?>
-                                </span>
+                                <?= TimelineEvent::find()->today()->count() ?>
+                            </span>
                         </a>
                     </li>
                     <!-- Notifications: style can be found in dropdown.less -->

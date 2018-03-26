@@ -82,6 +82,27 @@ class CacheController extends Controller
     }
 
     /**
+     * @return \yii\web\Response
+     * @throws HttpException
+     */
+    public function actionFlushAllCaches()
+    {
+        $result = false;
+        foreach ($this->findCaches() as $cacheName => $cache){
+            Yii::$app->get($cacheName)->flush();
+            $result = true;
+        }
+        if ($result) {
+            Yii::$app->session->setFlash('alert', [
+                'body'=>\Yii::t('backend', 'All caches has been successfully flushed'),
+                'options'=>['class'=>'alert-success']
+            ]);
+        };
+
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+
+    /**
      * @param $id
      * @return \yii\caching\Cache|object|null
      * @throws HttpException
