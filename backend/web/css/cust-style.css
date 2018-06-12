@@ -1,0 +1,60 @@
+/* Custom styles */
+
+[class*="-phone_input"] .control-label{
+	display: block;
+}
+[class*="-phone_input"] .intl-tel-input{
+	display: block;
+	width: 100%;
+}
+[class*="-phone_input"] [id*="-phone_input"]{
+	display: block;
+	width: 100%;
+	height: 34px;
+}
+
+
+
+
+
+
+.grid-view table td:first-child a,
+.grid-view table td:nth-child(2) a {
+	font-weight: 600;
+	color: blue;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+	margin-top: 0;
+}
+
+/*tr.color-active {*/
+	/*background-color: #dff0d8 !important;*/
+/*}*/
+/*tr.color-inactive {*/
+	/*background-color: #F7D3D2 !important;*/
+/*}*/
+
+/*.table > tbody > tr > td {*/
+	/*vertical-align: bottom;*/
+/*}*/
+
+/*.form-group:first-child{*/
+	/*margin-top: 15px;*/
+/*}*/
+
+.popover-sm {
+	min-width: 275px;
+}
+.popover-xs {
+	min-width: 200px;
+}
+
+/*#languages a[href*="delete"]{*/
+	/*display: none;*/
+/*}*/
+
+/*.hidden-input {*/
+	/*position:absolute;*/
+	/*opacity: 0;*/
+/*}*/

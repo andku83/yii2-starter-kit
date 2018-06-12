@@ -17,8 +17,8 @@ class SystemLogSearch extends SystemLog
     public function rules()
     {
         return [
-            [['id', 'log_time', 'message'], 'integer'],
-            [['category', 'prefix', 'level'], 'safe'],
+            [['id', 'message'], 'integer'],
+            [['category', 'prefix', 'log_time', 'level'], 'safe'],
         ];
     }
 
@@ -50,9 +50,14 @@ class SystemLogSearch extends SystemLog
         $query->andFilterWhere([
             'id' => $this->id,
             'level' => $this->level,
-            'log_time' => $this->log_time,
+//            'log_time' => $this->log_time,
             'message' => $this->message,
         ]);
+
+        if (!empty($this->log_time) && strpos($this->log_time, ' - ') !== false ) {
+            list($start_date, $end_date) = explode(' - ', $this->log_time);
+            $query->andFilterWhere(['between', 'log_time', strtotime($start_date), strtotime($end_date)]);
+        }
 
         $query->andFilterWhere(['like', 'category', $this->category])
             ->andFilterWhere(['like', 'prefix', $this->prefix]);

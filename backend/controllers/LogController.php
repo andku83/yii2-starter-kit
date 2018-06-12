@@ -38,7 +38,7 @@ class LogController extends Controller
 
         if (strcasecmp(Yii::$app->request->method, 'delete') == 0) {
             SystemLog::deleteAll($dataProvider->query->where);
-            return $this->refresh();
+            return $this->redirect(Yii::$app->request->referrer);
         }
         $dataProvider->sort = [
             'defaultOrder' => ['log_time' => SORT_DESC]
@@ -63,6 +63,22 @@ class LogController extends Controller
     }
 
     /**
+     * Deletes an existing SystemLog model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        if (strpos(Yii::$app->request->referrer, 'id=') === false){
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+        return $this->redirect(['index']);
+    }
+
+    /**
      * Finds the SystemLog model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -76,18 +92,5 @@ class LogController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }
-
-    /**
-     * Deletes an existing SystemLog model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
     }
 }

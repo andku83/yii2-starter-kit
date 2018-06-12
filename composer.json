@@ -50,7 +50,8 @@
     "guzzlehttp/guzzle": "^6.0",
     "symfony/process": "^4.0",
     "symfony/var-dumper": "*",
-    "pheme/yii2-toggle-column": "^0.7.0"
+    "pheme/yii2-toggle-column": "^0.7.0",
+    "kartik-v/yii2-date-range": "^1.6"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",
